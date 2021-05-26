@@ -29,7 +29,7 @@ router.post('/', async (req, res) => {
 
 			sess.votedOn.push({ link, vote })
 			console.log("voting")
-			// res.json({ message: `Voted for ${vote}` });
+			// res.json({ message: `Voted for ${vote}` }) ;
 			res.json(newRes);
 		} catch (err) {
 			res.send({ message: err })
