@@ -2,6 +2,7 @@ const express = require("express")
 const mongoose = require('mongoose');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
+require('dotenv').config()
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -9,10 +10,10 @@ app.use(express.urlencoded({ extended: true }));
 var conf = {
 	db: {
 		dbName: 'poll',
-		host: 'cluster0.moegj.mongodb.net',
+		host: process.env.DB_HOST,
 		// port: 27017,  // optional, default: 27017
-		username: 'admin', // optional
-		password: 'admin1', // optional
+		username: process.env.DB_USER, // optional
+		password: process.env.DB_PASS, // optional
 		collection: 'sessi0ns' // optional, default: sessions
 	},
 	secret: '074a6f5sd894sfda5ea872411e433b9'
@@ -24,7 +25,7 @@ var conf = {
 // dbUrl += conf.db.host + ':' + conf.db.port;
 // dbUrl += '/' + conf.db.db;
 
-dbUrl = ""
+dbUrl = process.env.DB_URI
 
 app.use(session({
 	resave: false,
