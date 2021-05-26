@@ -24,7 +24,7 @@ var conf = {
 // dbUrl += conf.db.host + ':' + conf.db.port;
 // dbUrl += '/' + conf.db.db;
 
-dbUrl = "mongodb+srv://admin:admin1@cluster0.moegj.mongodb.net/poll?retryWrites=true&w=majority"
+dbUrl = ""
 
 app.use(session({
 	resave: false,
